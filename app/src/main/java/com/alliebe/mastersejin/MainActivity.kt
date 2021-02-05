@@ -2,8 +2,6 @@ package com.alliebe.mastersejin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import com.alliebe.mastersejin.com.alliebe.mastersejin.ViewPagerAdapter
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*

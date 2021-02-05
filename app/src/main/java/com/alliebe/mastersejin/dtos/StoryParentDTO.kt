@@ -1,4 +1,7 @@
 package com.alliebe.mastersejin.dtos
 
-class StoryParentDTO {
-}
+data class StoryParentDTO (
+    var question: String? = null,
+    var album_URI: String? = null,
+    var children: List<StoryChildDTO>? = null
+)

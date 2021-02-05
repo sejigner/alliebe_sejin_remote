@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.rishabh.nestedrecyclerview.dtos.ParentDTO" />
+            type="com.alliebe.mastersejin.dtos.StoryParentDTO" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,17 +25,18 @@
             android:textColor="#FF0000"
             android:fontFamily="monospace"
             android:textStyle="bold"
-            android:text="@{data.title}"
+            android:text="@{data.question}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Sample Parent Title" />
 
+        // Imageview 구현 예정
         <TextView
             android:id="@+id/tv_description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="240dp"
             android:textAlignment="center"
-            android:text="@{data.description}"
+            android:text="@{data.album_URI}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="Sample Parent Description" />
@@ -44,7 +45,7 @@
             android:id="@+id/rv_children"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_description"

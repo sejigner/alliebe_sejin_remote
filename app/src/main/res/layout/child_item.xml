@@ -9,7 +9,7 @@
 
         <variable
             name="data"
-            type="com.rishabh.nestedrecyclerview.dtos.ChildDTO" />
+            type="com.alliebe.mastersejin.dtos.StoryChildDTO" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -20,9 +20,9 @@
         android:elevation="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="200dp"
+            android:layout_width="344dp"
             android:layout_height="wrap_content"
-            android:background="@color/design_default_color_secondary"
+            android:background="#00E8E6E6"
             android:paddingHorizontal="8dp"
             android:paddingVertical="8dp">
 
@@ -33,7 +33,7 @@
                 android:contentDescription="@string/sublist_image"
                 android:src="@mipmap/img_sample"
                 android:textColor="@color/black"
-                android:visibility="@{data.imageURL.isEmpty() ? View.GONE : View.VISIBLE}"
+                android:visibility="@{data.img_Profile.isEmpty() ? View.GONE : View.VISIBLE}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/avatars" />
@@ -43,25 +43,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@{data.title}"
+                android:text="@{data.comment}"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/iv_sub_image"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Sample Child Title" />
-
-            <TextView
-                android:id="@+id/tv_sub_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:lines="2"
-                android:text="@{data.description}"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_sub_image"
-                app:layout_constraintTop_toBottomOf="@+id/tv_sub_title"
-                tools:text="Sample Child Description" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

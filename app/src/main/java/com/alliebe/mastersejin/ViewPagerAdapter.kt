@@ -1,9 +1,12 @@
-package com.alliebe.mastersejin.com.alliebe.mastersejin
+package com.alliebe.mastersejin
 
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.alliebe.mastersejin.com.alliebe.mastersejin.LookaroundFragment
+import com.alliebe.mastersejin.com.alliebe.mastersejin.QuestionFragment
+import com.alliebe.mastersejin.com.alliebe.mastersejin.RecommendFragment
 
 class ViewPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm){
     override fun getItem(position: Int): Fragment {
