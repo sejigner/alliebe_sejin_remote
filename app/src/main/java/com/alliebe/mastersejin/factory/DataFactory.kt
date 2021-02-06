@@ -10,13 +10,22 @@ object DataFactory {
     private val rand = Random(123123123L)
 
     // Sample titles
-    private val comment = listOf("Vertigo",
-        "The Innocents",
-        "Lawrence of Arabia",
-        "The Deer Hunter",
-        "Amadeus",
-        "Blade Runner",
-        "Eyes Wide Shut"
+    private val comment = listOf("코멘트1",
+        "코멘트2",
+        "코멘트3",
+        "코멘트4",
+        "코멘트5",
+        "코멘트6",
+        "코멘트7"
+    )
+
+    private val question = listOf("질문1",
+        "질문2",
+        "질문3",
+        "질문4",
+        "질문5",
+        "질문6",
+        "질문7"
     )
 
 
@@ -38,7 +47,7 @@ object DataFactory {
         val list = ArrayList<StoryParentDTO>()
         for (i in 1..rand.nextInt(5, 10)) {
             list.add(StoryParentDTO(
-                comment[rand.nextInt(comment.size)], album_URI[rand.nextInt(comment.size)],
+                question[rand.nextInt(comment.size)], album_URI[rand.nextInt(comment.size)],
                 getChildList()
             ))
         }
@@ -48,7 +57,7 @@ object DataFactory {
     // Returns a sample `List<ChildDTO>` Object to populate the parent object
     private fun getChildList(): List<StoryChildDTO> {
         val list = ArrayList<StoryChildDTO>()
-        for (i in 1..rand.nextInt(5, 10)) {
+        for (i in 1..rand.nextInt(1, 4)) {
             list.add(getRandomChild())
         }
         return list

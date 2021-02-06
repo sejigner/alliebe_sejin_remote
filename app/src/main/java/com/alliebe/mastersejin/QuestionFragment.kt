@@ -30,7 +30,7 @@ class QuestionFragment : Fragment() {
 
         btn_editStory_temp.setOnClickListener {
             activity?.let {
-                val intent = Intent(context, ChapterWriteActivity::class.java)
+                val intent = Intent(context, StoryEditActivity::class.java)
                 startActivity(intent)
             }
         }

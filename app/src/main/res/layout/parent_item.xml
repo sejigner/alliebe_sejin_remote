@@ -18,7 +18,7 @@
         android:paddingVertical="8dp">
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -28,7 +28,7 @@
             android:text="@{data.question}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Sample Parent Title" />
+            tools:text="Sample Question" />
 
         // Imageview 구현 예정
         <TextView
@@ -38,8 +38,8 @@
             android:textAlignment="center"
             android:text="@{data.album_URI}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title"
-            tools:text="Sample Parent Description" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_question"
+            tools:text="Sample Album" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_children"
