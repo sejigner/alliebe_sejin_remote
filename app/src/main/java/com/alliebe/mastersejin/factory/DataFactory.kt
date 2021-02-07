@@ -1,7 +1,14 @@
 package com.alliebe.mastersejin.factory
 
+import android.graphics.drawable.Drawable
+import android.nfc.Tag
+import android.util.Log
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import com.alliebe.mastersejin.R
 import com.alliebe.mastersejin.dtos.StoryChildDTO
 import com.alliebe.mastersejin.dtos.StoryParentDTO
+import com.bumptech.glide.Glide
 import kotlin.random.Random
 
 object DataFactory {
@@ -31,14 +38,11 @@ object DataFactory {
 
     // Sample descriptions
     private val album_URI = listOf(
-        "사진1",
-        "사진2",
-        "사진3",
-        "사진4",
-        "사진5",
-        "사진6",
-        "사진7",
-        "사진8"
+        R.drawable.album_ex,
+        R.drawable.album_ex2,
+        R.drawable.album_ex3,
+        R.drawable.album_ex4,
+        R.drawable.album_ex5
     )
 
 
@@ -47,9 +51,10 @@ object DataFactory {
         val list = ArrayList<StoryParentDTO>()
         for (i in 1..rand.nextInt(5, 10)) {
             list.add(StoryParentDTO(
-                question[rand.nextInt(comment.size)], album_URI[rand.nextInt(comment.size)],
+                question[rand.nextInt(question.size)], album_URI[i],
                 getChildList()
             ))
+            Log.d("list", "$list[i]")
         }
         return list
     }
@@ -68,5 +73,16 @@ object DataFactory {
         return StoryChildDTO(
             comment[rand.nextInt(comment.size)],  "@mipmap/img_sample"
         )
+    }
+
+    @BindingAdapter("imageResource")
+    @JvmStatic
+    fun loadImage(imageView : ImageView, url : String){
+
+        Glide.with(imageView.context).load(url)
+            .error(R.drawable.error)
+            .override(200, 200)
+            .centerCrop()
+            .into(imageView)
     }
 }

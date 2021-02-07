@@ -12,7 +12,7 @@ import com.alliebe.mastersejin.dtos.StoryParentDTO
 
 class StoryParentAdapter(private val data: List<StoryParentDTO>) : RecyclerView.Adapter<ViewHolder>() {
 
-    inner class ViewHolder(private val itemView: View, val binding: ParentItemBinding) : RecyclerView.ViewHolder(itemView) {}
+    inner class ViewHolder(private val itemView: View, val binding: ParentItemBinding) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),

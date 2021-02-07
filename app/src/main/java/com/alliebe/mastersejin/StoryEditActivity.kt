@@ -16,6 +16,7 @@ class StoryEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_story)
         val data = DataFactory.getParentList()
+
         binding.rvItems.adapter = StoryParentAdapter(data)
     }
 }

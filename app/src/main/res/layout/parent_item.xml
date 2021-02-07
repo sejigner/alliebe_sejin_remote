@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="data"
             type="com.alliebe.mastersejin.dtos.StoryParentDTO" />
@@ -28,16 +30,18 @@
             android:text="@{data.question}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Sample Question" />
+            tools:text="Sample Question"
+            />
 
-        // Imageview 구현 예정
-        <TextView
-            android:id="@+id/tv_description"
+        <ImageView
+            android:id="@+id/iv_album"
             android:layout_width="match_parent"
+            android:visibility="@{data.album_URI.isEmpty() ? View.GONE : View.VISIBLE}"
             android:layout_height="240dp"
             android:textAlignment="center"
-            android:text="@{data.album_URI}"
+            app:imageResource="@{data.album_URI}"
             app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/sublist_image"
             app:layout_constraintTop_toBottomOf="@+id/tv_question"
             tools:text="Sample Album" />
 
@@ -48,7 +52,7 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description"
+            app:layout_constraintTop_toBottomOf="@+id/iv_album"
             tools:listitem="@layout/child_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
