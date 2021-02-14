@@ -38,11 +38,11 @@ object DataFactory {
 
     // Sample descriptions
     private val album_URI = listOf(
-        R.drawable.album_ex,
-        R.drawable.album_ex2,
-        R.drawable.album_ex3,
-        R.drawable.album_ex4,
-        R.drawable.album_ex5
+        "R.drawable.album_ex",
+        "R.drawable.album_ex2",
+        "R.drawable.album_ex3",
+        "R.drawable.album_ex4",
+        "R.drawable.album_ex5"
     )
 
 
@@ -51,7 +51,7 @@ object DataFactory {
         val list = ArrayList<StoryParentDTO>()
         for (i in 1..rand.nextInt(5, 10)) {
             list.add(StoryParentDTO(
-                question[rand.nextInt(question.size)], album_URI[i],
+                question[rand.nextInt(question.size)], album_URI[rand.nextInt(album_URI.size)],
                 getChildList()
             ))
             Log.d("list", "$list[i]")
