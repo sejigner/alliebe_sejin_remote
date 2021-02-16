@@ -23,6 +23,7 @@ class StoryParentAdapter(private val data: List<StoryParentDTO>) : RecyclerView.
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.data = data[position]
         holder.binding.rvChildren.adapter = StoryChildAdapter(data[position].children)
+        holder.binding.rvAlbum.adapter = StoryChildAlbumAdapter(data[position].children_album)
         holder.binding.executePendingBindings()
     }
 

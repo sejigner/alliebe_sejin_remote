@@ -23,27 +23,24 @@
             android:id="@+id/tv_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="@{data.question}"
             android:textAlignment="center"
             android:textColor="#FF0000"
-            android:fontFamily="monospace"
             android:textStyle="bold"
-            android:text="@{data.question}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Sample Question"
-            />
+            tools:text="Sample Question" />
 
-        <ImageView
-            android:id="@+id/iv_album"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_album"
             android:layout_width="match_parent"
-            android:visibility="@{data.album_URI.isEmpty() ? View.GONE : View.VISIBLE}"
             android:layout_height="240dp"
-            android:textAlignment="center"
-            app:imageResource="@{data.album_URI}"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            android:contentDescription="@string/sublist_image"
             app:layout_constraintTop_toBottomOf="@+id/tv_question"
-            tools:text="Sample Album" />
+            tools:listitem="@layout/child_album_item" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_children"
@@ -52,7 +49,7 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_album"
+            app:layout_constraintTop_toBottomOf="@+id/rv_album"
             tools:listitem="@layout/child_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

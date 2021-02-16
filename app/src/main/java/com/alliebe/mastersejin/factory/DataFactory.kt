@@ -1,14 +1,10 @@
 package com.alliebe.mastersejin.factory
 
-import android.graphics.drawable.Drawable
-import android.nfc.Tag
 import android.util.Log
-import android.widget.ImageView
-import androidx.databinding.BindingAdapter
 import com.alliebe.mastersejin.R
+import com.alliebe.mastersejin.dtos.StoryChildAlbumDTO
 import com.alliebe.mastersejin.dtos.StoryChildDTO
 import com.alliebe.mastersejin.dtos.StoryParentDTO
-import com.bumptech.glide.Glide
 import kotlin.random.Random
 
 object DataFactory {
@@ -17,32 +13,32 @@ object DataFactory {
     private val rand = Random(123123123L)
 
     // Sample titles
-    private val comment = listOf("코멘트1",
-        "코멘트2",
-        "코멘트3",
-        "코멘트4",
-        "코멘트5",
-        "코멘트6",
-        "코멘트7"
+    private val comment = listOf("comment",
+        "comment2",
+        "comment3",
+        "comment4",
+        "comment5",
+        "comment6",
+        "comment7"
     )
 
-    private val question = listOf("질문1",
-        "질문2",
-        "질문3",
-        "질문4",
-        "질문5",
-        "질문6",
-        "질문7"
+    private val question = listOf("question1",
+        "question2",
+        "question3",
+        "question4",
+        "question5",
+        "question6",
+        "question7"
     )
 
 
     // Sample descriptions
-    private val album_URI = listOf(
-        "R.drawable.album_ex",
-        "R.drawable.album_ex2",
-        "R.drawable.album_ex3",
-        "R.drawable.album_ex4",
-        "R.drawable.album_ex5"
+    private val album = listOf(
+        R.drawable.album_ex,
+        R.drawable.album_ex2,
+        R.drawable.album_ex3,
+        R.drawable.album_ex4,
+        R.drawable.album_ex5
     )
 
 
@@ -51,8 +47,7 @@ object DataFactory {
         val list = ArrayList<StoryParentDTO>()
         for (i in 1..rand.nextInt(5, 10)) {
             list.add(StoryParentDTO(
-                question[rand.nextInt(question.size)], album_URI[rand.nextInt(album_URI.size)],
-                getChildList()
+                question[rand.nextInt(question.size)],getChildList(), getChildAlbumList()
             ))
             Log.d("list", "$list[i]")
         }
@@ -67,6 +62,14 @@ object DataFactory {
         }
         return list
     }
+    private fun getChildAlbumList(): List<StoryChildAlbumDTO> {
+        val list = ArrayList<StoryChildAlbumDTO>()
+        for (i in 1..rand.nextInt(1, 4)) {
+            list.add(getRandomAlbumChild())
+        }
+        return list
+    }
+
 
     // Returns a sample `ChildDTO` Object
     private fun getRandomChild(): StoryChildDTO {
@@ -75,14 +78,9 @@ object DataFactory {
         )
     }
 
-    @BindingAdapter("imageResource")
-    @JvmStatic
-    fun loadImage(imageView : ImageView, url : String){
-
-        Glide.with(imageView.context).load(url)
-            .error(R.drawable.error)
-            .override(200, 200)
-            .centerCrop()
-            .into(imageView)
+    private fun getRandomAlbumChild(): StoryChildAlbumDTO {
+        return StoryChildAlbumDTO(
+            album[rand.nextInt(album.size)]
+        )
     }
 }
